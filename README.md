@@ -2,9 +2,9 @@
 
 ## Getting started - start the server
 
-  * Clone this repo
-  * `npm install`
-  * `npm run server`
+- Clone this repo
+- `npm install`
+- `npm run server`
 
 You should see something like this:
 
@@ -31,6 +31,9 @@ https://www.postman.com/downloads/
 
 Run up Postman
 
+File -> Import -> `api-test.postman_collection.json`
+
+You should now have a collection called `api-test`. Expand it, and you will see an entry `Get /customers' - Click on this, and then click the "Send" button to send an API request and see the response. The "Test" tab will show you the results of the test
 
 ## Writing postman tests
 
