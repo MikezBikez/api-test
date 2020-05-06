@@ -1,0 +1,8 @@
+{
+  "customers": [
+    { "id": 1, "title": "Mr", "firstname": "Mike", "lastname": "King" },
+    { "id": 2, "title": "Mr", "firstname": "Pat", "lastname": "Carmel" }
+  ],
+  "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
+  "profile": { "name": "typicode" }
+}

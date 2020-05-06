@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "f4361bd9-c227-471c-814d-5649bb884f0d",
+		"name": "api-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get /customers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5809b3ea-5bb1-4af4-9be1-8cac2e9c6a90",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"2 rows returned\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length).to.eql(2);",
+							"});",
+							"pm.test(\"First customer is called Mike\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].firstname).to.eql(\"Mike\");",
+							"});",
+							"pm.test(\"First customer is called Pat\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].firstname).to.eql(\"Pat\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

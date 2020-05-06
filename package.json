@@ -1,0 +1,31 @@
+{
+  "name": "api-test",
+  "version": "1.0.0",
+  "description": "API Testing 101",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "json-server db.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Back2bikes/api-test.git"
+  },
+  "keywords": [
+    "api",
+    "test",
+    "postman",
+    "json-server"
+  ],
+  "author": "Mike King",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Back2bikes/api-test/issues"
+  },
+  "homepage": "https://github.com/Back2bikes/api-test#readme",
+  "devDependencies": {
+    "json-server": "^0.16.1",
+    "newman": "^5.0.0",
+    "postman": "^0.2.0"
+  }
+}
