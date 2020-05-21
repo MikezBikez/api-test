@@ -27,5 +27,9 @@
     "json-server": "^0.16.1",
     "newman": "^5.0.0",
     "postman": "^0.2.0"
+  },
+  "dependencies": {
+    "swagger-ui-dist": "^3.25.3",
+    "swagger-ui-react": "^3.25.3"
   }
 }

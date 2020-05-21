@@ -1,0 +1,190 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "TCS base realastate",
+    "contact": "Jeoff Beezos,",
+    "email": "Jeoff.Beezy@gmail.com"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "customer/{firstname}": {
+      "put": {
+        "summary": "Update customer Data",
+        "operationId": "Update User Data",
+        "tags": ["customer"],
+        "description": "Update Customer data.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "int32",
+            "required": true,
+            "description": "id."
+          },
+          {
+            "in": "url",
+            "name": "firstName",
+            "type": "string",
+            "required": true,
+            "description": "FirstName."
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/customers/create": {
+      "post": {
+        "summary": "Insert User Data",
+        "operationid": "Insert User Data",
+        "tags": ["customer"],
+        "description": "Insert Customer data.",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "id",
+            "type": "string",
+            "required": true,
+            "description": "id of user."
+          },
+          {
+            "in": "query",
+            "name": "title",
+            "type": "string",
+            "required": true,
+            "description": "Title."
+          },
+          {
+            "in": "query",
+            "name": "firstName",
+            "type": "string",
+            "required": true,
+            "description": "FirstName."
+          },
+          {
+            "in": "query",
+            "name": "lastName",
+            "type": "string",
+            "required": true,
+            "description": "LastName."
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/customers/{id}": {
+      "get": {
+        "summary": "Sample endpoint: Returns details about a particular customer",
+        "operationId": "listCustomer",
+        "tags": ["customer"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the customer",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sample response: Details about a user by ID",
+            "headers": {
+              "x-next": {
+                "description": "A link to the next page of responses",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            },
+
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "required": ["id", "name"],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "required": ["code", "message"],
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "House": {
+            "title": "house",
+            "type": "string",
+            "required": ["id", "location", "name"]
+          },
+          "description": "a new property on the market.",
+          "properties": null,
+          "price": null,
+          "type": "integer",
+          "maximum": 100000,
+          "minimum": 5000,
+          "example": "5000",
+          "size": {
+            "type": "string"
+          },
+          "suburb": {
+            "type": "string"
+          },
+          "street name": {
+            "type": "string"
+          },
+          "arrivalDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "order": null
+        },
+        "title": "order"
+      }
+    }
+  }
+}
