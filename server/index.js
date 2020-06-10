@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const debug = require('debug')('server:express')
+const fs = require('fs')
 const mongoose = require('mongoose')
 const Path = require('path')
 const app = express()
@@ -81,15 +82,3 @@ app.put('/agents/:_id', async function(req, res, next) {
 })
 
 app.listen(port, () => console.log(`listening @ http://localhost:${port}`))
-
-// write all routes to swagger file
-const filepath = Path.join(__dirname, './docs/swagger.json')
-const writeSwaggerFile = require('express-swagger-export')
-const template = {
-  info: {
-    title: 'Pics.io exported',
-    description: 'Pics.io app API',
-    version: '1.0.0'
-  }
-}
-writeSwaggerFile(app, filepath, { template, includeRoot: false })

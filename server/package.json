@@ -4,7 +4,9 @@
   "description": "express server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "DEBUG=server:* nodemon index.js",
+    "start": "node index.js",
+    "test": "newman run test/agent-test.postman_collection.json"
   },
   "author": "",
   "license": "MIT",
