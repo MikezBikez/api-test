@@ -62,7 +62,8 @@
 							"",
 							"pm.test(\"No agents found\", function () {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.length).to.eql(0);",
+							"  ",
+							"pm.globals.set(\"agent_count\", jsonData.length);",
 							"});",
 							""
 						],
@@ -384,8 +385,8 @@
 							"",
 							"pm.test(\"No agents found\", function () {",
 							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.length).to.eql(0);",
-							"pm.environment.set(\"variable_key\", \"variable_value\");",
+							"    pm.expect(jsonData.length).to.eql(pm.variables.get(\"agent_count\"));",
+							"",
 							"});",
 							""
 						],
