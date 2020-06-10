@@ -1,0 +1,431 @@
+{
+	"info": {
+		"_postman_id": "1b92bfbc-aa68-42aa-98dc-4784acf4bb2c",
+		"name": "agent-test",
+		"description": "test of reading and writing agents",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Make sure agent 6 doesn't exist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f78d4360-86ba-4cf0-9201-4b4cb30674dc",
+						"exec": [
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3500/agents/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"agents",
+						"6"
+					]
+				},
+				"description": "deletes an agent"
+			},
+			"response": []
+		},
+		{
+			"name": "get agents",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8daff19c-9533-4e3c-a1b0-443020fb1fe3",
+						"exec": [
+							"",
+							"pm.test(\"Status test\", function () {",
+							"     pm.response.to.have.status(200);",
+							"     ",
+							"});",
+							"",
+							"pm.test(\"No agents found\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length).to.eql(0);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3500/agents",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"agents"
+					]
+				},
+				"description": "Updates a comment with newer data"
+			},
+			"response": []
+		},
+		{
+			"name": "create agent 6",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "93346a47-8409-4055-b980-54d1e5a41d4e",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"     pm.response.to.have.status(200);",
+							"     ",
+							"});",
+							"",
+							"pm.test(\"First agent is called Damascus\", function () {",
+							"    var agent = pm.response.json();",
+							"    pm.expect(agent.agent_first_name).to.eql(\"Damascus\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"_id\": \"6\",\n    \"agent_first_name\": \"Damascus\",\n    \"agent_last_name\": \"Hardy\",\n    \"agent_user_name\": \"D.Hardy@gmail.com.KO\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3500/agents",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"agents"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Pat",
+							"disabled": true
+						}
+					]
+				},
+				"description": "creates a record for agents"
+			},
+			"response": []
+		},
+		{
+			"name": "get agents/6",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "98ea95e4-b048-4ac9-9281-c93cb34b4ea0",
+						"exec": [
+							"",
+							"pm.test(\"Status test\", function () {",
+							"     pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"First agent is called Damascus\", function () {",
+							"    var agent = pm.response.json();",
+							"    pm.expect(agent._id).to.eql(\"6\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3500/agents/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"agents",
+						"6"
+					]
+				},
+				"description": "gets an agent number 6"
+			},
+			"response": []
+		},
+		{
+			"name": "update agent 6",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8a3b3064-b43e-4407-af70-5cde7ff7315f",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"     pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"First agent is called Creig\", function () {",
+							"    var agent = pm.response.json();",
+							"    pm.expect(agent.agent_first_name).to.eql(\"Creig\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"_id\": \"6\", \n\"agent_first_name\": \"Creig\"\n\n\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3500/agents/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"agents",
+						"6"
+					]
+				},
+				"description": "Updates agents information"
+			},
+			"response": []
+		},
+		{
+			"name": "get agents/6 ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "55e1f648-6416-4e9d-9a1c-bccf547e3630",
+						"exec": [
+							"",
+							"pm.test(\"Status test\", function () {",
+							"     pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"First agent is called Damascus\", function () {",
+							"    var agent = pm.response.json();",
+							"    pm.expect(agent._id).to.eql(\"6\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3500/agents/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"agents",
+						"6"
+					]
+				},
+				"description": "gets an agent number 6"
+			},
+			"response": []
+		},
+		{
+			"name": "delete agent 6",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "13683ab2-1c2f-45bc-8d3b-51443057241e",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"     pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"",
+							"pm.test(\"No agents found/ record has been deleted\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"ok\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3500/agents/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"agents",
+						"6"
+					]
+				},
+				"description": "deletes an agent"
+			},
+			"response": []
+		},
+		{
+			"name": "get agents",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "563b3507-0d11-4917-8cc6-ac31e2a2af31",
+						"exec": [
+							"",
+							"pm.test(\"Status test\", function () {",
+							"     pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"No agents found\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.length).to.eql(0);",
+							"pm.environment.set(\"variable_key\", \"variable_value\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3500/agents",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3500",
+					"path": [
+						"agents"
+					]
+				},
+				"description": "Updates a comment with newer data"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
