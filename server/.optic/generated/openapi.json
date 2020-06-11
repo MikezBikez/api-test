@@ -1,0 +1,230 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "untitled API",
+    "version": "101"
+  },
+  "paths": {
+    "/agents": {
+      "get": {
+        "operationId": "request_RGt99PmsvE",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {}
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "operationId": "request_nSqWjtguBD",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "_id",
+                  "agent_first_name",
+                  "agent_last_name",
+                  "agent_user_name"
+                ],
+                "properties": {
+                  "_id": {
+                    "type": "string"
+                  },
+                  "agent_first_name": {
+                    "type": "string"
+                  },
+                  "agent_last_name": {
+                    "type": "string"
+                  },
+                  "agent_user_name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "__v",
+                    "_id",
+                    "agent_first_name",
+                    "agent_last_name"
+                  ],
+                  "properties": {
+                    "__v": {
+                      "type": "number"
+                    },
+                    "_id": {
+                      "type": "string"
+                    },
+                    "agent_first_name": {
+                      "type": "string"
+                    },
+                    "agent_last_name": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "parameters": []
+    },
+    "/agents/6": {
+      "delete": {
+        "operationId": "request_42M64MusV5",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "status"
+                  ],
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "description": ""
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "message",
+                    "status"
+                  ],
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "get": {
+        "operationId": "request_QOXUEMjwLF",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "_id",
+                    "agent_first_name",
+                    "agent_last_name"
+                  ],
+                  "properties": {
+                    "_id": {
+                      "type": "string"
+                    },
+                    "agent_first_name": {
+                      "type": "string"
+                    },
+                    "agent_last_name": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "operationId": "request_6h8jTDX3Rf",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "_id",
+                  "agent_first_name"
+                ],
+                "properties": {
+                  "_id": {
+                    "type": "string"
+                  },
+                  "agent_first_name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "__v",
+                    "_id",
+                    "agent_first_name",
+                    "agent_last_name"
+                  ],
+                  "properties": {
+                    "__v": {
+                      "type": "number"
+                    },
+                    "_id": {
+                      "type": "string"
+                    },
+                    "agent_first_name": {
+                      "type": "string"
+                    },
+                    "agent_last_name": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "description": ""
+          }
+        }
+      },
+      "parameters": []
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
