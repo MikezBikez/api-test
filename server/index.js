@@ -5,7 +5,7 @@ const fs = require('fs')
 const mongoose = require('mongoose')
 const Path = require('path')
 const app = express()
-const port = 3500
+const defaultport = 3500
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(bodyParser.raw())
@@ -81,4 +81,6 @@ app.put('/agents/:_id', async function(req, res, next) {
   }
 })
 
+//app.listen(port, () => console.log(`listening @ http://localhost:${port}`))
+const port = process.env.OPTIC_API_PORT || defaultport || 3500
 app.listen(port, () => console.log(`listening @ http://localhost:${port}`))
