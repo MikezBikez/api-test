@@ -4,6 +4,12 @@
     "title": "untitled API",
     "version": "101"
   },
+  "servers": [
+    {
+      "url": "http://localhost:3500"
+    }
+  ],
+
   "paths": {
     "/agents": {
       "get": {
@@ -59,12 +65,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "required": [
-                    "__v",
-                    "_id",
-                    "agent_first_name",
-                    "agent_last_name"
-                  ],
+                  "required": ["__v", "_id", "agent_first_name", "agent_last_name"],
                   "properties": {
                     "__v": {
                       "type": "number"
@@ -97,9 +98,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "required": [
-                    "status"
-                  ],
+                  "required": ["status"],
                   "properties": {
                     "status": {
                       "type": "string"
@@ -115,10 +114,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "required": [
-                    "message",
-                    "status"
-                  ],
+                  "required": ["message", "status"],
                   "properties": {
                     "message": {
                       "type": "string"
@@ -142,11 +138,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "required": [
-                    "_id",
-                    "agent_first_name",
-                    "agent_last_name"
-                  ],
+                  "required": ["_id", "agent_first_name", "agent_last_name"],
                   "properties": {
                     "_id": {
                       "type": "string"
@@ -172,10 +164,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "_id",
-                  "agent_first_name"
-                ],
+                "required": ["_id", "agent_first_name"],
                 "properties": {
                   "_id": {
                     "type": "string"
@@ -194,12 +183,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "required": [
-                    "__v",
-                    "_id",
-                    "agent_first_name",
-                    "agent_last_name"
-                  ],
+                  "required": ["__v", "_id", "agent_first_name", "agent_last_name"],
                   "properties": {
                     "__v": {
                       "type": "number"
