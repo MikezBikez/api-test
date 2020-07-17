@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "DEBUG=server:* nodemon index.js",
+    "optic": "api start",
     "start": "node index.js",
     "test": "newman run test/agent-test.postman_collection.json"
   },
