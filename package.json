@@ -30,6 +30,6 @@
   },
   "dependencies": {
     "swagger-ui-dist": "^3.25.3",
-    "swagger-ui-react": "^3.25.3"
+    "swagger-ui-react": "^4.1.3"
   }
 }
